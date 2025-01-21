@@ -409,7 +409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58568898913f47e4d8f618cecf24af91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 1
+  _speed: 1.2
   _rotation: 10
   audioClipDead: {fileID: 8300000, guid: 4b9a15254b7146c4e97486b7ea49b901, type: 3}
 --- !u!1 &346547018
