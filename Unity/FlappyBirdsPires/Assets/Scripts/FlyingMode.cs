@@ -30,7 +30,7 @@ public class FlyingMode : MonoBehaviour
             _animator.SetTrigger("Flap");
         }
 #elif UNITY_ANDROID || UNITY_IOS
-       if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) 
+       if (Input.touchCount > 0 ) 
        {
              _rb2D.velocity = Vector2.up * _speed;
             _animator.SetTrigger("Flap");

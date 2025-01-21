@@ -409,7 +409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58568898913f47e4d8f618cecf24af91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 1.5
+  _speed: 1
   _rotation: 10
   audioClipDead: {fileID: 8300000, guid: 4b9a15254b7146c4e97486b7ea49b901, type: 3}
 --- !u!1 &346547018
@@ -813,12 +813,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.935
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1211,7 +1211,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -112, y: -241}
+  m_AnchoredPosition: {x: -100, y: -238}
   m_SizeDelta: {x: 91, y: 24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &944019251
@@ -1950,7 +1950,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -87.93, y: -269}
+  m_AnchoredPosition: {x: -75.93, y: -268}
   m_SizeDelta: {x: 139.14, y: 22.0648}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1665530295
