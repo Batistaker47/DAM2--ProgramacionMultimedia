@@ -10,6 +10,8 @@ public class FlyingMode : MonoBehaviour
     [SerializeField] private float _speed = 1.5f;
     [SerializeField] private float _rotation = 10f;
 
+    private bool IsDead = false;
+
     public AudioClip audioClipDead;
 
     private Rigidbody2D _rb2D;
@@ -36,8 +38,10 @@ public class FlyingMode : MonoBehaviour
     {
         AudioManager.instance.enabled = true;
         AudioManager.instance.PlayAudio(audioClipDead, "Flappy Death");
-           
-        _animator.SetBool("isDead", true);
+
+
+        IsDead = true;
+        _animator.SetBool("isDead", IsDead);
         GameManager.Instance.GameOver();
     }
 }

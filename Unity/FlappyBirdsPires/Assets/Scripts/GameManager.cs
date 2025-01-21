@@ -23,10 +23,13 @@ public class GameManager : MonoBehaviour
     {
         _gameOverMenu.SetActive(true);
         Time.timeScale = 0f;
+        AddManager.instance.ShowAd();
     }
 
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+
 }

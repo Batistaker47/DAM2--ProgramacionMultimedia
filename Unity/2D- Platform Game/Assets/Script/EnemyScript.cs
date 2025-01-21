@@ -10,7 +10,7 @@ public class EnemyScript : MonoBehaviour
     private float LastShoot;
     public GameObject bulletPrefab;
     public int health = 3;
-    private bool IsDead = false;
+    public bool IsDead = false;
 
     // Start is called before the first frame update
     void Start()
@@ -69,7 +69,7 @@ public class EnemyScript : MonoBehaviour
         if (health == 0)
         {
             IsDead = true;
-            animator.SetBool("IsDead", IsDead);
+            animator.SetBool("isDead", IsDead);
             AudioManager.instance.enabled = true;
             AudioManager.instance.PlayAudio(audioClipDeath, "DeathEnemySound");
             //Destroy(gameObject);
