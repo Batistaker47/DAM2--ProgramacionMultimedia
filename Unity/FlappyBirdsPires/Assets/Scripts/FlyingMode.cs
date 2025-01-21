@@ -10,12 +10,12 @@ public class FlyingMode : MonoBehaviour
     [SerializeField] private float _speed = 1.5f;
     [SerializeField] private float _rotation = 10f;
 
-    private bool IsDead = false;
+    private bool isDead = false;
 
     public AudioClip audioClipDead;
 
     private Rigidbody2D _rb2D;
-    void Start()
+    void Awake()
     {
         _rb2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
@@ -23,12 +23,20 @@ public class FlyingMode : MonoBehaviour
 
     void Update()
     {
-       if(Input.GetKeyDown(KeyCode.Space))
+#if UNITY_STANDALONE || UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             _rb2D.velocity = Vector2.up * _speed;
+            _animator.SetTrigger("Flap");
         }
+#elif UNITY_ANDROID || UNITY_IOS
+       if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) 
+       {
+             _rb2D.velocity = Vector2.up * _speed;
+            _animator.SetTrigger("Flap");
+       }
+#endif
     }
-
     private void FixedUpdate()
     {
         transform.rotation = Quaternion.Euler(0, 0, _rb2D.velocity.y * _rotation);
@@ -36,12 +44,15 @@ public class FlyingMode : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        isDead = true;
+        _animator.SetTrigger("Die");
         AudioManager.instance.enabled = true;
         AudioManager.instance.PlayAudio(audioClipDead, "Flappy Death");
+        Dead();
+    }
 
-
-        IsDead = true;
-        _animator.SetBool("isDead", IsDead);
+    public void Dead()
+    {
         GameManager.Instance.GameOver();
     }
 }

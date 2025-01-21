@@ -15,7 +15,7 @@ public class AudioManager : MonoBehaviour
         if (!instance)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
             activeAudios = new List<GameObject>();
 
         }
