@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bbff0e3a46e8c146a34f2d2ed68c49e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClipPoint: {fileID: 8300000, guid: ec49671f2315d744ca20d05bca5efd65, type: 3}
+  pointSound: {fileID: 8300000, guid: ec49671f2315d744ca20d05bca5efd65, type: 3}
 --- !u!1 &8261256011567937896
 GameObject:
   m_ObjectHideFlags: 0
