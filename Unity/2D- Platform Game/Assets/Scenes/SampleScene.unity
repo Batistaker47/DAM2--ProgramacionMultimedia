@@ -7259,6 +7259,7 @@ MonoBehaviour:
   audioClipDeath: {fileID: 8300000, guid: 22cef58a804ec2c47a4eeba0276e0ab4, type: 3}
   bulletPrefab: {fileID: 1766716267587745252, guid: 39bbe9b688cd23b4396d9a6ed6c5031c, type: 3}
   health: 1
+  IsDead: 0
 --- !u!70 &797327551
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -8446,6 +8447,7 @@ MonoBehaviour:
   audioClipDeath: {fileID: 8300000, guid: 22cef58a804ec2c47a4eeba0276e0ab4, type: 3}
   bulletPrefab: {fileID: 1766716267587745252, guid: 39bbe9b688cd23b4396d9a6ed6c5031c, type: 3}
   health: 1
+  IsDead: 0
 --- !u!1 &1514367582
 GameObject:
   m_ObjectHideFlags: 0
@@ -9135,6 +9137,7 @@ MonoBehaviour:
   audioClipDeath: {fileID: 8300000, guid: 22cef58a804ec2c47a4eeba0276e0ab4, type: 3}
   bulletPrefab: {fileID: 1766716267587745252, guid: 39bbe9b688cd23b4396d9a6ed6c5031c, type: 3}
   health: 1
+  IsDead: 0
 --- !u!70 &2036004226
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -9470,11 +9473,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4495901368516817911, guid: 9a94e980aa0285649b78b7761226aa3b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.861
+      value: 0.868
       objectReference: {fileID: 0}
     - target: {fileID: 4495901368516817911, guid: 9a94e980aa0285649b78b7761226aa3b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.028
+      value: 0.061
       objectReference: {fileID: 0}
     - target: {fileID: 4495901368516817911, guid: 9a94e980aa0285649b78b7761226aa3b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9645,7 +9648,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6191202182727270032, guid: d2cc477ed9b2d364789564557b9974df, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.07
+      value: 0.089
       objectReference: {fileID: 0}
     - target: {fileID: 6191202182727270032, guid: d2cc477ed9b2d364789564557b9974df, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9755,7 +9758,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2054750360091522083, guid: 3ff36cfc1da53c34da1ca2120584241e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.064
+      value: 0.086
       objectReference: {fileID: 0}
     - target: {fileID: 2054750360091522083, guid: 3ff36cfc1da53c34da1ca2120584241e, type: 3}
       propertyPath: m_LocalPosition.z
