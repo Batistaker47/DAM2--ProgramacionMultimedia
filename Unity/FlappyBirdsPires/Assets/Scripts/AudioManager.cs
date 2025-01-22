@@ -5,9 +5,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-
     public static AudioManager instance;
-
     private List<GameObject> activeAudios;
 
     private void Awake()
@@ -15,9 +13,8 @@ public class AudioManager : MonoBehaviour
         if (!instance)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+            // DontDestroyOnLoad(gameObject); // Uncomment to persist across scenes
             activeAudios = new List<GameObject>();
-
         }
         else
         {
@@ -25,16 +22,21 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    // Parametro de entrada por defecto en el volume y en el loop, por lo que al llamar al metodo no habria que pasarle esos valores
-    // El volumen va de 0 a 1
-    // ESTE METODO ES PARA CREAR AUDIO SOURCES EN CODIGO, QUE ES LO MISMO QUE CREARLOS EN LA INTERFAZ DE UNITY CON BOTON DERECHO, NEW GAME OBJECT Y A�ADIRLE A PELO TODO EN LOS COMPONENTES
+    /// <summary>
+    /// Plays an audio clip.
+    /// </summary>
+    /// <param name="clip">The audio clip to play.</param>
+    /// <param name="objectName">The name of the game object.</param>
+    /// <param name="volume">The volume of the audio clip (0-1).</param>
+    /// <param name="isLoop">Whether the audio clip should loop.</param>
+    /// <returns>The AudioSource component.</returns>
     public AudioSource PlayAudio(AudioClip clip, string objectName, float volume = 1, bool isLoop = false)
     {
+        // Create a new GameObject and add an AudioSource component.
         GameObject audioObject = new GameObject(objectName);
-        // Con esto coge el game object y le anade el componente audio source (que es el componente que hace que suene el audio)
         AudioSource audioSourceComponent = audioObject.AddComponent<AudioSource>();
 
-        // Asociamos las propiedades
+        // Set the AudioSource properties.
         audioSourceComponent.clip = clip;
         audioSourceComponent.volume = volume;
         audioSourceComponent.loop = isLoop;
@@ -43,34 +45,26 @@ public class AudioManager : MonoBehaviour
         if (!isLoop)
         {
             activeAudios.Add(audioObject);
-            // LLAMAMOS A LA COORUTINA
+            // Start a coroutine to check when the audio has finished playing.
             StartCoroutine(CheckAudio(audioSourceComponent));
         }
 
         return audioSourceComponent;
-
     }
-    // ESTO ES UNA COORUTINA (ES COMO UN HILO). EJECUTA EL CODIGO HASTA QUE LLEGA A UNA LINEA
-    IEnumerator CheckAudio(AudioSource audioSource)
+
+    /// <summary>
+    /// Coroutine to check when an audio clip has finished playing.
+    /// </summary>
+    /// <param name="audioSource">The AudioSource component.</param>
+    private IEnumerator CheckAudio(AudioSource audioSource)
     {
         while (audioSource.isPlaying)
         {
-            // ESTO ES PARA PARAR LA EJECUCION DURANTE 0.2 SEGUNDOS
-            yield return new WaitForSeconds(.2f);
+            yield return new WaitForSeconds(0.2f);
         }
-        // QUITAMOS EL AUDIO DE LA LISTA ANTES DE DESTRUIRLO PARA AHORRAR RECURSOS
+
+        // Remove the audio object from the active audios list and destroy it.
         activeAudios.Remove(audioSource.gameObject);
         Destroy(audioSource.gameObject);
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }
